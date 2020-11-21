@@ -1,0 +1,5 @@
+splitw -v
+splitw -h
+select-pane -t2
+splitw -h
+select-pane -t2
