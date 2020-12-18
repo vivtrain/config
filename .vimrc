@@ -33,6 +33,7 @@ set background=dark               " dark background
 set timeoutlen=1000 ttimeoutlen=0 " set a 1 sec timout for map leader
 set backspace=indent,eol,start    " make backspace work
 set shell=/bin/bash
+set visualbell
 
 if has("autocmd")
     au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
