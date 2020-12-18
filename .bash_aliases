@@ -49,7 +49,7 @@ alias chrome='google-chrome-stable &> /dev/null & disown'
 # # git
 alias gs='git status'
 alias gl='git log'
-alias ga='git add .; git status'
+alias ga='git add'
 alias gc='git commit'
 alias gp='git push'
 alias gd='git diff'
