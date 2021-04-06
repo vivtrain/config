@@ -33,6 +33,7 @@ set background=dark               " dark background
 set timeoutlen=1000 ttimeoutlen=0 " set a 1 sec timout for map leader
 set backspace=indent,eol,start    " make backspace work
 set shell=/bin/bash
+set noesckeys
 set visualbell
 
 if has("autocmd")
@@ -59,10 +60,10 @@ nnoremap <tab><right>       <c-w>l
 nnoremap <leader><tab>      :tabn<cr>
 nnoremap <leader><s-tab>    :tabp<cr>
 "Buffer navigation
-imap     OA               <esc>kli
-imap     OB               <esc>jli
-imap     OC               <esc>lli
-imap     OD               <esc>i
+"imap     OA               <esc>kli
+"imap     OB               <esc>jli
+"imap     OC               <esc>lli
+"imap     OD               <esc>i
 imap     <c-h>              <left>
 imap     <c-j>              <down>
 imap     <c-k>              <up>
@@ -77,6 +78,7 @@ vnoremap K                  H
 vnoremap J                  L
 vnoremap H                  <home>
 vnoremap L                  <end>
+nnoremap <leader>'          `[
 nnoremap <leader>M          :set mouse=a<cr>
 nnoremap <leader>m          :set mouse=""<cr>
 "Comment/Uncomment
@@ -110,14 +112,27 @@ set hlsearch            " Highlight search
 set hidden              " Hide buffers when they are abandoned
 set laststatus=2        " Always show the status bar with mode, file name, etc.
 set wrap                " Show long lines as multipule lines
-set scrolloff=5         " Whenever possible, show +/-10 lines around cursor
+set scrolloff=5         " Whenever possible, show N lines around cursor
+set t_Co=256            " Pretty Colors
 
 set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 
 set splitbelow          " sp creates below
 set splitright          " vsp creates to the right
 
-set t_Co=256            " Pretty Colors
+" Cursor color
+hi Cursor ctermbg=white ctermfg=black
+
+" Highlight current vert position
+set cursorline
+hi clear CursorLine
+hi CursorLine ctermbg=235
+
+"80 Character line
+set colorcolumn=81      " Colors column 81
+"set tw=80               " Automatically newlines at a new word that passes 80
+hi ColorColumn ctermbg=233
+hi LineNr ctermfg=15 ctermbg=0
 
 highlight comment ctermfg=lightblue
 highlight include ctermfg=lightmagenta
@@ -125,12 +140,6 @@ highlight include ctermfg=lightmagenta
 "Line number options
 set number              " Show line numbers
 set numberwidth=3       " Make room for a three digit line number
-
-"80 Character line
-set colorcolumn=81      " Colors column 81
-"set tw=80               " Automatically newlines at a new word that passes 80
-hi ColorColumn ctermbg=8
-hi LineNr ctermfg=15 ctermbg=0
 
 "Highlight extra whitespace as red
 " highlight ExtraWhitespace ctermbg=white guibg=white
@@ -145,9 +154,9 @@ set nosmartindent
 set autoindent
 set smarttab
 
-set tabstop=2           " Tab length of 4 characters
-set shiftwidth=2        " Normal mode tabbing to match ^
-set softtabstop=2
+set tabstop=4           " Tab length of 4 characters
+set shiftwidth=4        " Normal mode tabbing to match ^
+set softtabstop=4
 
 set list
 set listchars=tab:>-    " Show tabs as >-
