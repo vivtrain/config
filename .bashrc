@@ -10,12 +10,21 @@ case $- in
 esac
 
 export LC_ALL='C'
-export PATH=.:~/scripts:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin:/usr/games
-export LD_LIBRARY_PATH=/usr/local/cuda-6.5/lib64:
-export CDPATH=.:~/cs/
+# check if path has been updated so it doesn't grow with new terminals
+if ! grep -q "$PATH" <<< "/usr/bin"; then
+    export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:\
+        /snap/bin:/usr/games:$PATH"
+fi
+export LD_LIBRARY_PATH='/usr/local/cuda-6.5/lib64:'
+export CDPATH='.'
 export LESS='-R'
 
-# # history # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# Vim bindings for terminal
+set -o vi
+# Vim as default editor
+EDITOR=/usr/bin/vim
+
+# # History # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 HISTCONTROL=ignoreboth      # no duplicate lines or lines starting with space
 shopt -s histappend         # append to the history file instead of overwriting
 HISTSIZE=1000
@@ -33,7 +42,7 @@ case "$TERM" in
     xterm-color|*-256color) color_prompt=yes;;
 esac
 
-# # colors # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# # Colors # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
@@ -114,3 +123,4 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
     tmux new
 fi
+

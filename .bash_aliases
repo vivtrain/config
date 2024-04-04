@@ -12,7 +12,7 @@ alias ve='vim ~/.emacs'
 alias ee='emacs ~/.emacs'
 
 
-# Navigation/Terminal Interface
+# File System Navigation
 alias ll='ls -lhXv --hide=*.class'
 alias la='ls -A'
 alias lla='ll -A'
@@ -84,3 +84,12 @@ function color {
 
 # # SEASNET SERVER
 export LNX="vivekk@lnxsrv09.seas.ucla.edu"
+export EEAPPS="vivekk@eeapps.seas.ucla.edu"
+
+# # DISPLAY
+export DISPLAY=$(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0
+export LIBGL_ALWAYS_INDIRECT=1
+
+# # Windows Clipboard Access
+alias clip='clip.exe'
+alias paste='powershell.exe Get-Clipboard'
