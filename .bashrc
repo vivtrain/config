@@ -123,4 +123,3 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
     tmux new
 fi
-

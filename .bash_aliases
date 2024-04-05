@@ -38,7 +38,6 @@ alias open='nautilus $1 &>/dev/null'
 alias term='gnome-terminal'
 alias sysmon='gnome-system-monitor & disown'
 alias off='shutdown now'
-alias rm='trash'
 #alias fan="sudo ~/scripts/_fan $1"
 alias mk='make'
 alias km='make'
