@@ -9,7 +9,7 @@ set timeoutlen=1000 ttimeoutlen=0 " set a 1 sec timout for map leader
 set backspace=indent,eol,start    " make backspace work
 set shell=/bin/bash
 set noesckeys
-set noerrorbells
+set visualbell
 
 if has("autocmd")
     au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
@@ -24,8 +24,8 @@ endif
 "
 
 " Vim Native Package Manager""""""""""""""""""""""""""""""""""""""""""""""""""""
-" packadd YouCompleteMe
-" let g:ycm_global_ycm_extra_conf = '/home/k99vivek/.vim/pack/YouCompleteMe/opt/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
+packadd YouCompleteMe
+let g:ycm_global_ycm_extra_conf = '/home/k99vivek/.vim/pack/YouCompleteMe/opt/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
 
 " Formatting""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Tabbing
@@ -64,14 +64,14 @@ nnoremap <tab><right>       <c-w>l
 nnoremap <leader><tab>      :tabn<cr>
 nnoremap <leader><s-tab>    :tabp<cr>
 " Buffer navigation
-imap     OA               <esc>kli
-imap     OB               <esc>jli
-imap     OC               <esc>lli
-imap     OD               <esc>i
-"imap     <c-h>              <left>
-"imap     <c-j>              <down>
-"imap     <c-k>              <up>
-"imap     <c-l>              <right>
+"imap     OA               <esc>kli
+"imap     OB               <esc>jli
+"imap     OC               <esc>lli
+"imap     OD               <esc>i
+imap     <c-h>              <left>
+imap     <c-j>              <down>
+imap     <c-k>              <up>
+imap     <c-l>              <right>
 nnoremap K                  H
 nnoremap J                  L
 nnoremap H                  <home>
