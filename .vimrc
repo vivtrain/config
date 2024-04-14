@@ -9,7 +9,7 @@ set timeoutlen=1000 ttimeoutlen=0 " set a 1 sec timout for map leader
 set backspace=indent,eol,start    " make backspace work
 set shell=/bin/bash
 set noesckeys
-set visualbell
+set noerrorbells 
 
 if has("autocmd")
     au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
@@ -169,7 +169,7 @@ hi Pmenu ctermbg=237 ctermfg=255
 " General syntax colors
 hi comment ctermfg=lightblue
 hi include ctermfg=176
-hi constant ctermfg=13
+hi constant ctermfg=201
 hi statement ctermfg=228
 hi special ctermfg=219
 
