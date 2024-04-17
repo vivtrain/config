@@ -15,7 +15,6 @@ if ! grep -q "$PATH" <<< "/usr/bin"; then
     export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:\
         /snap/bin:/usr/games:$PATH"
 fi
-export LD_LIBRARY_PATH='/usr/local/cuda-6.5/lib64:'
 export CDPATH='.'
 export LESS='-R'
 
@@ -118,8 +117,3 @@ fi
 
 # Add an "alert" alias for long running commands.
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
-# start tmux by default if available
-if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
-    tmux new
-fi
