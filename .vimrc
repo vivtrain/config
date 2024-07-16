@@ -34,22 +34,22 @@ set shiftround
 set nosmartindent
 set autoindent
 
-set tabstop=4           " Tab length of 4 characters
-set shiftwidth=4        " Normal mode tabbing to match ^
-set softtabstop=4
+set tabstop=2           " Tab length of 2 characters
+set shiftwidth=2        " Normal mode tabbing to match ^
+set softtabstop=2
 set smarttab
 
 set list
 set listchars=tab:>-    " Show tabs as >-
 
-" C++ Format
-"let g:airline_powerline_fonts = 1
-"let mapleader=","
-"autocmd FileType c,cpp,objc,cc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
-"autocmd FileType c,cpp,objc,cc vnoremap <buffer><Leader>cf :ClangFormat<CR>
-"autocmd FileType c,cpp,objc,cc nmap <Leader>C :ClangFormatAutoToggle<CR>
-autocmd Filetype c,cpp,objc,cc set cindent
-"command CF ClangFormat
+" C-Style Language Specific Formatting
+autocmd Filetype c,cpp,objc,cc set cindent tabstop=2 shiftwidth=2
+
+" Python Specific Formatting
+autocmd Filetype py set tabstop=2 shiftwidth=2
+
+" Matlab Formatting
+autocmd Filetype m set tabstop=2 shiftwidth=2
 
 " Maps""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let mapleader=" "
@@ -111,8 +111,6 @@ nnoremap <leader>f          :YcmCompleter FixIt<cr>
                             " Try to YCM fix on the current line
 nnoremap <leader><cr>       o<esc>k
                             " Add an empty line without leaving normal mode
-nnoremap S                  :%s//gc<left><left><left>
-                            " Search and Replace, whole file, ask first
 nnoremap <leader>-          i-<esc>vy79p<home>R
                             " Subheader for .txt notes
 nnoremap <leader>=          i=<esc>vy79pyypO<tab>

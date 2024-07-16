@@ -41,6 +41,7 @@ alias off='shutdown now'
 #alias fan="sudo ~/scripts/_fan $1"
 alias mk='make'
 alias km='make'
+alias mkr='make && ./run'
 alias vs='vim -S'
 alias chrome='google-chrome-stable &> /dev/null & disown'
 
