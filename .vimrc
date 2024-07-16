@@ -82,7 +82,7 @@ vnoremap K                  H
 vnoremap J                  L
 vnoremap H                  <home>
 vnoremap L                  <end>
-nnoremap <leader>'          `[
+nnoremap <leader>'          '[
 nnoremap <leader>M          :set mouse=a<cr>
 nnoremap <leader>m          :set mouse=""<cr>
 " Comment/Uncomment
@@ -102,8 +102,11 @@ nnoremap <leader>T          :set expandtab!<cr>:set expandtab?<cr>
                             " Toggle tab expansion
 nnoremap <leader>t          :%s/\t/    /g<cr>
                             " Swap tab characters with four spaces
+vnoremap <leader>c          :w !clip.exe<cr>q
+                            " Send to system clipboard on WSL
 nnoremap <leader>p          :set paste!<cr>
-nnoremap <leader>w          mc:%s/  *$//ge<cr>'c:noh<cr>
+                            " Toggle paste mode
+nnoremap <leader>w          m':%s/  *$//ge<cr>'':noh<cr>
                             " Eliminate trailing whitespace
 nnoremap <leader>n          :noh<cr>
                             " Stop highlighting (e.g. after a search)
@@ -117,7 +120,6 @@ nnoremap <leader>=          i=<esc>vy79pyypO<tab>
                             " Header for .txt notes
 inoremap {<cr>              {<cr>}<esc>O
                             " Uses auto indenting to create a new code block
-
 
 " Display"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set showcmd             " Show (partial) command in status line.
