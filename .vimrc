@@ -43,13 +43,13 @@ set list
 set listchars=tab:>-    " Show tabs as >-
 
 " C-Style Language Specific Formatting
-autocmd Filetype c,cpp,objc,cc set cindent tabstop=2 shiftwidth=2
+autocmd Filetype c,cpp,objc,cc set cindent tabstop=2 shiftwidth=2 softtabstop=2
 
 " Python Specific Formatting
-autocmd Filetype py set tabstop=2 shiftwidth=2
+autocmd Filetype py set tabstop=2 shiftwidth=2 softtabstop=2
 
 " Matlab Formatting
-autocmd Filetype m set tabstop=2 shiftwidth=2
+autocmd Filetype m set tabstop=2 shiftwidth=2 softtabstop=2
 
 " Maps""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let mapleader=" "
