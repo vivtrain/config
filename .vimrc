@@ -46,7 +46,7 @@ set listchars=tab:>-    " Show tabs as >-
 autocmd Filetype c,cpp,objc,cc set cindent tabstop=2 shiftwidth=2 softtabstop=2
 
 " Python Specific Formatting
-autocmd Filetype py set tabstop=2 shiftwidth=2 softtabstop=2
+autocmd Filetype python set tabstop=2 shiftwidth=2 softtabstop=2
 
 " Matlab Formatting
 autocmd Filetype m set tabstop=2 shiftwidth=2 softtabstop=2
