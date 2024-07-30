@@ -2,7 +2,7 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
-# # Inital Settings ############################################################
+### Inital Settings ############################################################
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -31,7 +31,7 @@ HISTSIZE=1000
 HISTFILESIZE=2000
 shopt -s checkwinsize       # update window size
 
-# # The Prompt #################################################################
+# # The Prompt # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 # set variable identifying the chroot you work in (used in the prompt below)
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
@@ -42,7 +42,7 @@ case "$TERM" in
     xterm-color|*-256color) color_prompt=yes;;
 esac
 
-# # Colors # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+### Colors #####################################################################
 force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
@@ -62,6 +62,18 @@ if [ "$color_prompt" = yes ]; then
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
+
+# Set custom terminal capabilities (termcap)
+if [ "$color_prompt" = yes ]; then
+  export LESS_TERMCAP_mb=$'\e[94m'     # mode blink
+  export LESS_TERMCAP_md=$'\e[94m'     # mode bold
+  export LESS_TERMCAP_me=$'\e[0m'      # mode end
+  export LESS_TERMCAP_so=$'\e[30;103m'  # standout
+  export LESS_TERMCAP_se=$'\e[0m'      # standout end
+  export LESS_TERMCAP_us=$'\e[32m'     # underline start
+  export LESS_TERMCAP_ue=$'\e[0m'      # underline end
+fi
+
 unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
@@ -85,7 +97,7 @@ fi
 # colored GCC warnings and errors
  export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
-# # Other Sources ##############################################################
+### Other Sources ##############################################################
 # Alias definitions.
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
@@ -100,7 +112,7 @@ if [ -f ~/.bash_preferences ]; then
     . ~/.bash_preferences
 fi
 
-# # Miscellaneous ##############################################################
+### Miscellaneous ##############################################################
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile

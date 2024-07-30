@@ -12,7 +12,7 @@ alias ve='vim ~/.emacs'
 alias ee='emacs ~/.emacs'
 
 
-# File System Navigation
+# File system/shell navigation
 alias ll='ls -lhXv --hide=*.class'
 alias la='ls -A'
 alias lla='ll -A'
@@ -30,7 +30,7 @@ alias tm='tmux'
 alias mkdir='mkdir -m u=rwx,g=r,o=r'
 
 
-# # runnables
+# # Shortcuts
 alias py='python'
 alias py3='python3'
 #alias killpy='killall python'
@@ -47,7 +47,7 @@ alias vs='vim -S'
 alias chrome='google-chrome-stable &> /dev/null & disown'
 
 
-# # git
+# # Git
 alias gs='git status'
 alias gl='git log'
 alias ga='git add'
@@ -58,24 +58,46 @@ alias gf='git fetch origin'
 alias gr='cd $(git rev-parse --show-toplevel)'
 
 
-# # colors
-export NO_COLOR='\e[0m'
-export WHITE='\e[1;37m'
-export BLACK='\e[0;30m'
-export BLUE='\e[0;34m'
-export LIGHT_BLUE='\e[1;34m'
-export GREEN='\e[0;32m'
-export LIGHT_GREEN='\e[1;32m'
-export CYAN='\e[0;36m'
-export LIGHT_CYAN='\e[1;36m'
-export RED='\e[0;31m'
-export LIGHT_RED='\e[1;31m'
-export PURPLE='\e[0;35m'
-export LIGHT_PURPLE='\e[1;35m'
-export BROWN='\e[0;33m'
-export YELLOW='\e[1;33m'
-export GRAY='\e[0;30m'
-export LIGHT_GRAY='\e[0;37m'
+# # Colors and highlights
+export        NO_COLOR='\e[0m'
+export           BLACK='\e[30m'
+export             RED='\e[31m'
+export           GREEN='\e[32m'
+export          YELLOW='\e[33m'
+export            BLUE='\e[34m'
+export          PURPLE='\e[35m'
+export            CYAN='\e[36m'
+export      LIGHT_GRAY='\e[37m'
+export            GRAY='\e[90m'
+export       LIGHT_RED='\e[91m'
+export     LIGHT_GREEN='\e[92m'
+export    LIGHT_YELLOW='\e[93m'
+export      LIGHT_BLUE='\e[94m'
+export    LIGHT_PURPLE='\e[95m'
+export      LIGHT_CYAN='\e[96m'
+export           WHITE='\e[97m'
+export        BG_BLACK='\e[97;40m'
+export          BG_RED='\e[30;41m'
+export        BG_GREEN='\e[30;42m'
+export       BG_YELLOW='\e[30;43m'
+export         BG_BLUE='\e[97;44m'
+export       BG_PURPLE='\e[30;45m'
+export         BG_CYAN='\e[30;46m'
+export   BG_LIGHT_GRAY='\e[30;47m'
+export         BG_GRAY='\e[30;100m'
+export    BG_LIGHT_RED='\e[30;101m'
+export  BG_LIGHT_GREEN='\e[30;102m'
+export BG_LIGHT_YELLOW='\e[30;103m'
+export   BG_LIGHT_BLUE='\e[30;104m'
+export BG_LIGHT_PURPLE='\e[30;105m'
+export   BG_LIGHT_CYAN='\e[30;106m'
+export        BG_WHITE='\e[30;107m'
+# Note on modes ################
+# normal:    \e[0;${COLOR_CODE}m
+# bold:      \e[1;${COLOR_CODE}m
+# faint:     \e[2;${COLOR_CODE}m
+# italics:   \e[3;${COLOR_CODE}m
+# underline: \e[4;${COLOR_CODE}m
 
 function color {
     echo -ne $1
@@ -84,14 +106,12 @@ function color {
 }
 
 
-# # SEASNET SERVER
-export LNX="vivekk@lnxsrv09.seas.ucla.edu"
-export EEAPPS="vivekk@eeapps.seas.ucla.edu"
-
 # # DISPLAY
 export DISPLAY=$(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0
 export LIBGL_ALWAYS_INDIRECT=1
 
+
 # # Windows Clipboard Access
 alias clip='clip.exe'
 alias paste='powershell.exe Get-Clipboard'
+
