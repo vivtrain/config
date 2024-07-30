@@ -26,6 +26,7 @@ endif
 " Vim Native Package Manager""""""""""""""""""""""""""""""""""""""""""""""""""""
 packadd YouCompleteMe
 let g:ycm_global_ycm_extra_conf = '/home/k99vivek/.vim/pack/YouCompleteMe/opt/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
+let g:ycm_confirm_extra_conf = 0
 
 " Formatting""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Tabbing
