@@ -13,10 +13,11 @@ alias ee='emacs ~/.emacs'
 
 
 # File system/shell navigation
-alias ll='ls -lhXv --hide=*.class'
+alias ll='ls -lhXv'
 alias la='ls -A'
 alias lla='ll -A'
 alias l='ll'
+alias tree='tree -v'
 
 alias ppd='popd'
 alias pd=pushd $1
