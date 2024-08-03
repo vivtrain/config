@@ -9,20 +9,26 @@ case $- in
       *) return;;
 esac
 
+# Set the localization settings for languages, text-rendering, sort order, etc.
 export LC_ALL='C'
+
 # check if path has been updated so it doesn't grow with new terminals
 if ! grep -q "$PATH" <<< "/usr/bin"; then
     export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:\
         /snap/bin:/usr/games:$PATH"
 fi
-export LD_LIBRARY_PATH='/usr/local/cuda-6.5/lib64:'
 export CDPATH='.'
 export LESS='-R'
 
-# Vim bindings for terminal
-set -o vi
 # Vim as default editor
 EDITOR=/usr/bin/vim
+
+# Vi-like line editing on the command line
+set -o vi
+# Use physical directories for cd instead of symbolic links
+set -o physical
+# Disable overwriting of files via redirection
+set -o noclobber
 
 # # History # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 HISTCONTROL=ignoreboth      # no duplicate lines or lines starting with space

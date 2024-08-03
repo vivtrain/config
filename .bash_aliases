@@ -46,6 +46,7 @@ alias mkr='make && echo "" && ./run'
 alias mkc='make clean'
 alias vs='vim -S'
 alias chrome='google-chrome-stable &> /dev/null & disown'
+alias CUR_DIR='basename $PWD'
 
 
 # # Git
@@ -105,11 +106,6 @@ function color {
     ${@:2}
     echo -ne $NO_COLOR
 }
-
-
-# # DISPLAY
-export DISPLAY=$(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0
-export LIBGL_ALWAYS_INDIRECT=1
 
 
 # # Windows Clipboard Access
