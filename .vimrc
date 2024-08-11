@@ -9,7 +9,7 @@ set timeoutlen=1000 ttimeoutlen=0 " set a 1 sec timout for map leader
 set backspace=indent,eol,start    " make backspace work
 set shell=/bin/bash
 set noesckeys
-set noerrorbells 
+set noerrorbells
 
 if has("autocmd")
     au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
@@ -57,33 +57,24 @@ let mapleader=" "
 " Window navigation
 nnoremap <tab>              <c-w>
 nnoremap <tab>q             <c-w>w
-nnoremap <tab><up>          <c-w>j
-nnoremap <tab><down>        <c-w>k
-nnoremap <tab><left>        <c-w>h
-nnoremap <tab><right>       <c-w>l
-" Tab navigation
-nnoremap <leader><tab>      :tabn<cr>
-nnoremap <leader><s-tab>    :tabp<cr>
 " Buffer navigation
-"imap     OA               <esc>kli
-"imap     OB               <esc>jli
-"imap     OC               <esc>lli
-"imap     OD               <esc>i
-imap     <c-h>              <left>
-imap     <c-j>              <down>
-imap     <c-k>              <up>
-imap     <c-l>              <right>
-nnoremap K                  H
-nnoremap J                  L
-nnoremap H                  <home>
-nnoremap L                  <end>
-nnoremap <c-k>              <pageup>H
-nnoremap <c-j>              <pagedown>H
-vnoremap K                  H
-vnoremap J                  L
-vnoremap H                  <home>
-vnoremap L                  <end>
-nnoremap <leader>'          '[
+inoremap OA               <up>
+inoremap OB               <down>
+inoremap OC               <right>
+inoremap OD               <left>
+                            " Fix console window arrow keys
+inoremap <c-h>              <left>
+inoremap <c-j>              <down>
+inoremap <c-k>              <up>
+inoremap <c-l>              <right>
+                            " Be able to move within insert mode using hjkl
+nnoremap 0                  ^
+nnoremap ^                  <home>
+                            " 0 easier to hit than ^ so swap their functions
+nnoremap Y                  y$
+                            " Make this consistent with D, since yy exists
+nnoremap Q                  @@
+                            " Repeat last macro, since I don't use ex mode
 nnoremap <leader>M          :set mouse=a<cr>
 nnoremap <leader>m          :set mouse=""<cr>
 " Comment/Uncomment
@@ -93,12 +84,13 @@ nnoremap <leader>b          O/*<esc>
 nnoremap <leader>e          o*/<esc>
 " Misc
 nnoremap <leader>q          :mks!<cr>:wqa<cr>
+                            " Quit after saving the session
 nnoremap <leader>s          :source ~/.vimrc<cr>:noh<cr>
                             " Source .vimrc to easily implement changes
 nnoremap S                  :%s//gc<left><left><left>
                             " Search and Replace, whole file, ask first
 nnoremap <leader>N          :set relativenumber!<cr>
-                            " Sets line numbers to be relative to current line
+                            " Toggles relative line numbers
 nnoremap <leader>T          :set expandtab!<cr>:set expandtab?<cr>
                             " Toggle tab expansion
 nnoremap <leader>t          :%s/\t/    /g<cr>
@@ -130,7 +122,7 @@ set incsearch           " Incremental search
 set hlsearch            " Highlight search
 set hidden              " Hide buffers when they are abandoned
 set laststatus=2        " Always show the status bar with mode, file name, etc.
-set wrap                " Show long lines as multipule lines
+set wrap                " Show long lines as multiple lines
 set scrolloff=5         " Whenever possible, show N lines around cursor
 set t_Co=256            " Pretty Colors
 
@@ -179,6 +171,6 @@ set number              " Show line numbers
 set numberwidth=3       " Make room for a three digit line number
 
 " Highlight extra whitespace as red
-"highlight ExtraWhitespace ctermbg=white guibg=white
-"autocmd ColorScheme * highlight ExtraWhitespace ctermbg=white guibg=white
-"match ExtraWhitespace /\s\+\%#\@<!$/
+highlight ExtraWhitespace ctermbg=white guibg=white
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=white guibg=white
+match ExtraWhitespace /\s\+\%#\@<!$/

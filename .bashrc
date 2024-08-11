@@ -11,6 +11,7 @@ esac
 
 # Set the localization settings for languages, text-rendering, sort order, etc.
 export LC_ALL='C'
+export LANG='C'
 
 # check if path has been updated so it doesn't grow with new terminals
 if ! grep -q "$PATH" <<< "/usr/bin"; then
