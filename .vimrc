@@ -21,7 +21,18 @@ endif
 " au InsertLeave * let &updatetime=updaterestore
 " " automatically leave insert mode after 'updatetime' milliseconds of inaction
 " au CursorHoldI * stopinsert
-"
+
+" Set escape sequences so Vim knows how to change cursor on Windows Console Host
+let &t_SI = "\<Esc>[6 q"
+let &t_SR = "\<Esc>[3 q"
+let &t_EI = "\<Esc>[2 q"
+
+" Fix arrow keys in Windows Console Host
+set esckeys
+set <up>=OA
+set <down>=OB
+set <right>=OC
+set <left>=OD
 
 " Vim Native Package Manager""""""""""""""""""""""""""""""""""""""""""""""""""""
 packadd YouCompleteMe
@@ -45,6 +56,7 @@ set listchars=tab:>-    " Show tabs as >-
 
 " C-Style Language Specific Formatting
 autocmd Filetype c,cpp,objc,cc set cindent tabstop=2 shiftwidth=2 softtabstop=2
+autocmd FileType cpp source ~/.vim/pack/cppman/start/dir/opt/cpp.vim
 
 " Python Specific Formatting
 autocmd Filetype python set tabstop=2 shiftwidth=2 softtabstop=2
@@ -57,12 +69,9 @@ let mapleader=" "
 " Window navigation
 nnoremap <tab>              <c-w>
 nnoremap <tab>q             <c-w>w
+nnoremap +                  <c-w>+
+nnoremap -                  <c-w>-
 " Buffer navigation
-inoremap OA               <up>
-inoremap OB               <down>
-inoremap OC               <right>
-inoremap OD               <left>
-                            " Fix console window arrow keys
 inoremap <c-h>              <left>
 inoremap <c-j>              <down>
 inoremap <c-k>              <up>
@@ -77,11 +86,6 @@ nnoremap Q                  @@
                             " Repeat last macro, since I don't use ex mode
 nnoremap <leader>M          :set mouse=a<cr>
 nnoremap <leader>m          :set mouse=""<cr>
-" Comment/Uncomment
-nnoremap <leader>c          I//<esc>
-nnoremap <leader>u          ^dw
-nnoremap <leader>b          O/*<esc>
-nnoremap <leader>e          o*/<esc>
 " Misc
 nnoremap <leader>q          :mks!<cr>:wqa<cr>
                             " Quit after saving the session
@@ -145,32 +149,39 @@ set colorcolumn=81      " Colors column 81
 hi ColorColumn ctermbg=233
 hi LineNr ctermfg=15 ctermbg=233
 
+" YCM Highlights
 " Column for breakpoints and YCM >> signs
 hi SignColumn ctermbg=234
-" YCM links YcmErrorSign to Error
+" YcmErrorSign
 hi Error ctermbg=1
-" YCM links YcmErrorSection to SpellBad
+" YcmErrorSection
 hi SpellBad ctermbg=52
-" YCM links YcmWarningSign to Todo
+" YcmWarningSign
 hi Todo ctermbg=228
-" YCM links YcmWarningSection to SpellCap
+" YcmWarningSection
 hi SpellCap ctermbg=58
+
+" Vim CPP Modern highlights
+hi cppSTLnamespace ctermfg=244
+hi cppAccess ctermfg=222
 
 " Menu (used by YCM for suggestions)
 hi Pmenu ctermbg=237 ctermfg=255
 
 " General syntax colors
-hi comment ctermfg=lightblue
-hi include ctermfg=176
-hi constant ctermfg=201
-hi statement ctermfg=228
-hi special ctermfg=219
+hi Comment ctermfg=lightblue
+hi Include ctermfg=176
+hi Constant ctermfg=201
+hi Statement ctermfg=228
+hi Special ctermfg=219
+hi Function ctermfg=117
 
 " Line number options
 set number              " Show line numbers
+set relativenumber      " Set line numbers relative to current
 set numberwidth=3       " Make room for a three digit line number
 
-" Highlight extra whitespace as red
+" Highlight extra whitespace
 highlight ExtraWhitespace ctermbg=white guibg=white
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=white guibg=white
 match ExtraWhitespace /\s\+\%#\@<!$/
