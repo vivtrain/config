@@ -38,6 +38,7 @@ set <left>=OD
 packadd YouCompleteMe
 let g:ycm_global_ycm_extra_conf = '/home/k99vivek/.vim/pack/YouCompleteMe/opt/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf = 0
+let g:python_highlight_all = 1
 
 " Formatting""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Tabbing
@@ -169,12 +170,12 @@ hi cppAccess ctermfg=222
 hi Pmenu ctermbg=237 ctermfg=255
 
 " General syntax colors
-hi Comment ctermfg=lightblue
+hi Comment ctermfg=39
 hi Include ctermfg=176
 hi Constant ctermfg=201
 hi Statement ctermfg=228
 hi Special ctermfg=219
-hi Function ctermfg=117
+hi Function ctermfg=123
 
 " Line number options
 set number              " Show line numbers
