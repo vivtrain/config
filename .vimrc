@@ -8,7 +8,6 @@ set background=dark               " dark background
 set timeoutlen=1000 ttimeoutlen=0 " set a 1 sec timout for map leader
 set backspace=indent,eol,start    " make backspace work
 set shell=/bin/bash
-set noesckeys
 set noerrorbells
 
 if has("autocmd")
@@ -28,17 +27,21 @@ let &t_SR = "\<Esc>[3 q"
 let &t_EI = "\<Esc>[2 q"
 
 " Fix arrow keys in Windows Console Host
-set esckeys
-set <up>=OA
-set <down>=OB
-set <right>=OC
-set <left>=OD
+if !has('nvim')
+  set esckeys
+  set <up>=OA
+  set <down>=OB
+  set <right>=OC
+  set <left>=OD
+endif
 
 " Vim Native Package Manager""""""""""""""""""""""""""""""""""""""""""""""""""""
-packadd YouCompleteMe
-let g:ycm_global_ycm_extra_conf = '/home/k99vivek/.vim/pack/YouCompleteMe/opt/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
-let g:ycm_confirm_extra_conf = 0
-let g:python_highlight_all = 1
+if !has('nvim')
+  packadd YouCompleteMe
+  let g:ycm_global_ycm_extra_conf = '/home/k99vivek/.vim/pack/YouCompleteMe/opt/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
+  let g:ycm_confirm_extra_conf = 0
+  let g:python_highlight_all = 1
+endif
 
 " Formatting""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Tabbing

@@ -1,4 +1,5 @@
 # Preferences
+alias vim='nvim'
 alias vb='vim ~/.bashrc'
 alias sb='source ~/.bashrc'
 alias vba='vim ~/.bash_aliases'
@@ -7,9 +8,6 @@ alias vc='vim ~/.vimrc'
 
 alias tc='vim ~/.tmux.conf'
 alias st='tmux source-file ~/.tmux.conf'
-
-alias ve='vim ~/.emacs'
-alias ee='emacs ~/.emacs'
 
 
 # File system/shell navigation
@@ -47,6 +45,7 @@ alias mkc='make clean'
 alias vs='vim -S'
 alias chrome='google-chrome-stable &> /dev/null & disown'
 alias CUR_DIR='basename $PWD'
+alias omp='oh-my-posh'
 
 
 # # Git
