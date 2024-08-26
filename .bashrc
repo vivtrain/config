@@ -16,7 +16,7 @@ esac
 # check if path has been updated so it doesn't grow with new terminals
 if ! grep -q "$PATH" <<< "/usr/bin"; then
     export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:\
-        /snap/bin:/usr/games:~/.local/bin:$PATH"
+        /snap/bin:/usr/games:~/.local/bin:/opt/nvim-linux64/bin:$PATH"
 fi
 export CDPATH='.'
 export LESS='-R'
@@ -150,7 +150,6 @@ fi
 
 # Use oh-my-posh if available
 if command -v oh-my-posh &> /dev/null; then
-  #eval "$(oh-my-posh init bash --config ~/.myTheme.omp.json)"
   eval "$(oh-my-posh init bash --config ~/.wtTheme.omp.json)"
 fi
 
