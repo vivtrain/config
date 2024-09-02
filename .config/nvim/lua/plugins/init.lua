@@ -29,6 +29,21 @@ return {
   },
 
   {
+    "hrsh7th/nvim-cmp",
+    opts = function(_, opts)
+      local cmp = require("cmp")
+      opts.preselect = cmp.PreselectMode.None
+      opts.completion = {
+        completeopt = "menu,menuone,noinsert,noselect"
+      }
+      -- Set this up so you must explicitly select a replacement
+      opts.mapping = cmp.mapping.preset.insert(vim.tbl_deep_extend("force", opts.mapping, {
+        ["<cr>"] = cmp.mapping.confirm({ select = false, behavior = cmp.ConfirmBehavior.Replace }),
+      }))
+    end,
+  },
+
+  {
     "williamboman/mason-lspconfig.nvim"
   },
 
