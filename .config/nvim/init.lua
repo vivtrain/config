@@ -31,23 +31,6 @@ dofile(vim.g.base46_cache .. "statusline")
 require "options"
 require "nvchad.autocmds"
 
--- Load clangd LSP on cpp files
-
--- Setup WSL clipboard
-vim.g.clipboard = {
-        name = "clip-wsl",
-        copy = {
-            ["+"] = "clip.exe",
-            ["*"] = "clip.exe",
-        },
-        paste = {
-            ["+"] = "powershell.exe Get-Clipboard",
-            ["*"] = "powershell.exe Get-Clipboard",
-        },
-        cache_enabled = true,
-    }
-vim.opt.clipboard="" -- Do not share unnamed register with system clipboard
-
 vim.schedule(function()
   require "mappings"
 end)
