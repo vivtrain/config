@@ -13,11 +13,16 @@ esac
 #export LC_ALL='C'
 #export LANG='C'
 
-# check if path has been updated so it doesn't grow with new terminals
-if ! grep -q "$PATH" <<< "/usr/bin"; then
-    export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:\
-        /snap/bin:/usr/games:/home/k99vivek/.local/bin:/opt/nvim-linux64/bin:$PATH"
+# Check if tmux has been started. If not, then set the path
+if [ -z "$TMUX" ]; then
+    export PATH="\
+/opt/nvim-linux64/bin:\
+/home/k99vivek/.local/bin:\
+/home/k99vivek/misc/scripts/:\
+/home/k99vivek/.nvm/versions/node/v20.17.0/bin/:\
+$PATH"
 fi
+
 export CDPATH='.'
 export LESS='-R'
 
@@ -153,8 +158,13 @@ if command -v oh-my-posh &> /dev/null; then
   eval "$(oh-my-posh init bash --config ~/.wtTheme.omp.json)"
 fi
 
-export NVM_DIR="$HOME/.nvm"
-# Source these scripts to use the nvm command properly
-#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# Function to load nvm startup scripts
+load_nvm() {
+  if [ -z $NVM_DIR ]; then
+    export NVM_DIR="$HOME/.nvm"
+    # Source these scripts to use the nvm command properly
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+  fi
+}
 
