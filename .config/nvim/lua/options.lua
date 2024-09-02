@@ -13,5 +13,8 @@ vim.g.clipboard = {
         },
         cache_enabled = true,
     }
-vim.opt.clipboard="" -- Do not share unnamed register with system clipboard
+vim.opt.clipboard = "" -- Do not share unnamed register with system clipboard
+
+-- Set a marker for keeping lines under 80 characters
+vim.o.colorcolumn = "81"
 
