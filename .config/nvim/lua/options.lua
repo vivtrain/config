@@ -8,8 +8,8 @@ vim.g.clipboard = {
             ["*"] = "clip.exe",
         },
         paste = {
-            ["+"] = "powershell.exe Get-Clipboard",
-            ["*"] = "powershell.exe Get-Clipboard",
+            ['+'] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+            ['*'] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
         },
         cache_enabled = true,
     }
