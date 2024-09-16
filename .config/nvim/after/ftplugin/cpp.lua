@@ -9,3 +9,5 @@ map("n", "<leader>do", "<cmd> DapStepOver <cr>", {desc = "DAP Debugger step over
 map("n", "<leader>dx", "<cmd> DapStepOut <cr>", {desc = "DAP Debugger step out (i.e. exit)"} )
 map("n", "<leader>dt", "<cmd> DapTerminate <cr>", {desc = "DAP Debugger Terminate"} )
 
+vim.o.matchpairs = '[:],(:),{:},<:>'
+
