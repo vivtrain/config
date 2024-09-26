@@ -13,16 +13,58 @@ local nvlsp = require "nvchad.configs.lspconfig"
 -- }
 
 lspconfig.pyright.setup({
-  on_attach = nvlsp.on_attach,
   on_init = nvlsp.on_init,
+  on_attach = nvlsp.on_attach,
   capabilities = nvlsp.capabilities,
   filetypes = { "python" },
 })
 
 lspconfig.clangd.setup({
-  on_attach = nvlsp.on_attach,
   on_init = nvlsp.on_init,
+  on_attach = nvlsp.on_attach,
   capabilities = nvlsp.capabilities,
-  filetypes = { "cpp" },
+  filetypes = { "cpp", "c", "cc", "h", "tpp", "mpp" },
+})
+
+lspconfig.tsserver.setup({
+  on_init = nvlsp.on_init,
+  on_attach = nvlsp.on_attach,
+  capabilities = nvlsp.capabilities,
+  filetypes = {
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  },
+})
+
+lspconfig.tailwindcss.setup({
+  on_init = nvlsp.on_init,
+  on_attach = nvlsp.on_attach,
+  capabilities = nvlsp.capabilities,
+  filetypes = {
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  },
+})
+
+lspconfig.eslint.setup({
+  on_init = nvlsp.on_init,
+  on_attach = nvlsp.on_attach,
+  capabilities = nvlsp.capabilities,
+  filetypes = {
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  },
+})
+
+lspconfig.cssls.setup({
+  on_init = nvlsp.on_init,
+  on_attach = nvlsp.on_attach,
+  capabilities = nvlsp.capabilities,
 })
 

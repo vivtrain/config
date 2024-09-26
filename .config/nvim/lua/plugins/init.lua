@@ -9,7 +9,15 @@ return {
   	"nvim-treesitter/nvim-treesitter",
   	opts = {
   		ensure_installed = {
-  			"vim", "lua", "vimdoc", "cpp", "python"
+  			"vim",
+        "lua",
+        "vimdoc",
+        "cpp",
+        "python",
+        "javascript",
+        "typescript",
+        "tsx",
+        "css",
   		},
   	},
   },
@@ -24,6 +32,9 @@ return {
         "pyright",
         "mypy",
         "ruff",
+        "eslint-lsp",
+        "typescript-language-server",
+        "tailwindcss-language-server",
       },
     },
   },
@@ -105,6 +116,20 @@ return {
       dap.listeners.before.event_exited["dapui_config"] = function ()
         dapui.close()
       end
+    end
+  },
+
+  {
+    "windwp/nvim-ts-autotag",
+    ft = {
+      "javascript",
+      "javascriptreact",
+      "typescript",
+      "typescriptreact",
+      "html",
+    },
+    config = function ()
+      require("nvim-ts-autotag").setup()
     end
   },
 
