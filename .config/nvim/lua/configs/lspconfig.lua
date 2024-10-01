@@ -34,7 +34,7 @@ lspconfig.tsserver.setup({
     "javascript",
     "javascriptreact",
     "typescript",
-    "typescriptreact"
+    "typescriptreact",
   },
 })
 
@@ -46,7 +46,7 @@ lspconfig.tailwindcss.setup({
     "javascript",
     "javascriptreact",
     "typescript",
-    "typescriptreact"
+    "typescriptreact",
   },
 })
 
@@ -58,7 +58,7 @@ lspconfig.eslint.setup({
     "javascript",
     "javascriptreact",
     "typescript",
-    "typescriptreact"
+    "typescriptreact",
   },
 })
 
