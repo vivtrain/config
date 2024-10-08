@@ -17,6 +17,13 @@ map("n", "Q", "@@", { desc = "Repeat most recent macro" })
 map("n", "<c-space>", "<cmd> lua vim.diagnostic.open_float() <cr>", { desc = "Open float window" })
 map("n", "<c-n>", "<cmd> NvimTreeFocus <cr>", { desc = "NvimTree open or jump to explorer" })
 
+local cmp = require("cmp")
+cmp.setup({
+  mapping = cmp.mapping.preset.insert({
+    ['<cr>'] = cmp.mapping.confirm({ select = false }),
+  })
+})
+
 --map("n", "<tab>q", "<c-w>w")
 -- Buffer navigation
 --map("i", "<c-h>", "<left>")
